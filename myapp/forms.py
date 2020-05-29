@@ -1,6 +1,10 @@
 from django import forms
+from .models import Document
 
 
-class ContactForm(forms.Form):
-    name = forms.CharField(label='STORE/CLINIC/HOSPITAL/COMPANY NAME')
+
+class ContactForm(forms.ModelForm):
+    class Meta:
+        model = Document
+        fields = ('COMPANY_NAME', 'FRONT_INSIDE_PICTURE','BUSINESS_CARD_IMAGE')
 

@@ -4,7 +4,7 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('',views.contact)
+    path('',views.model_form_upload)
 
 
 ]
