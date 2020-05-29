@@ -1,9 +1,13 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render,redirect
 from .forms import  ContactForm
+from .models import Document
+
 
 
 # Create your views here.
+def home(request):
+    documents = Document.objects.all()
+    return render(request, 'home.html', { 'documents': documents })
 
 def model_form_upload(request):
     if request.method == 'POST':
