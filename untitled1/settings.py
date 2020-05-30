@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'myapp'
 ]
 
@@ -75,11 +76,17 @@ WSGI_APPLICATION = 'untitled1.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+#monodb database
+
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+        'ENGINE': 'djongo',
+        'NAME': 'myapp',
+        'HOST': "mongodb://gauravjana:justimagine@cluster0-dq9de.mongodb.net/test?retryWrites=true&w=majority",
+        'USER': 'gauravjana',
+        'PASSWORD': 'justimagine',
+        }
 }
 
 
