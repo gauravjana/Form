@@ -82,8 +82,8 @@ WSGI_APPLICATION = 'untitled1.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
-        'NAME': 'myapp',
-        'HOST': "mongodb://gauravjana:justimagine@cluster0-dq9de.mongodb.net/test?retryWrites=true&w=majority",
+        'NAME': 'myapp1',
+        'CLIENT':{'host': 'mongodb+srv://gauravjana:justimagine@cluster0-ge8xe.mongodb.net/test?retryWrites=true&w=majority'},
         'USER': 'gauravjana',
         'PASSWORD': 'justimagine',
         }
