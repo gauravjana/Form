@@ -14,6 +14,10 @@
       <li>
         <a href="{{ obj.document.url }}">{{ obj.document.name }}</a>
         <small>(Uploaded at: {{ obj.uploaded_at }})</small>
+
+        <a href="media/{{ obj.FRONT_INSIDE_PICTURE }}" target="_blank">{{ obj.name }}FRONT/INSIDE PICTURE </a>
+          <a target="_blank" href="media/{{ obj.BUSINESS_CARD_IMAGE }}">BUSINESS CARD IMAGE</a>
+
       </li>
     {% endfor %}
   </ul>
