@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework_mongoengine',
+    'accounts',
     'myapp'
+
 ]
 
 MIDDLEWARE = [
@@ -72,6 +74,15 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'untitled1.wsgi.application'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.SessionAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    )
+}
 
 
 # Database
@@ -122,6 +133,9 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+LOGIN_URL = '/accounts/auth/'
+
 
 
 # Static files (CSS, JavaScript, Images)

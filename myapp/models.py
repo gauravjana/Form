@@ -29,6 +29,8 @@ class data(Document):
 
 
     COMPANY_NAME = StringField(max_length=255, required=True)
+    email = StringField(max_length=255, required=True)
+    address = StringField(max_length=455, blank=True)
     FRONT_INSIDE_PICTURE = FileField()
     BUSINESS_CARD_IMAGE = FileField()
     uploaded_at = DateTimeField(default=datetime.utcnow)

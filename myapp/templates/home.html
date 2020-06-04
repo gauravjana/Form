@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 
+
 {% block content %}
   <ul>
 
@@ -10,6 +11,7 @@
 
   <p>Uploaded files:</p>
   <ul>
+  {% csrf_token %}
     {% for obj in documents %}
       <li>
         <a href="{{ obj.document.url }}">{{ obj.document.name }}</a>

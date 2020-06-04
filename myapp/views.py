@@ -27,11 +27,18 @@ def model_form_upload(request):
     })
 '''
 from rest_framework import status
+from django.shortcuts import render, redirect
 from rest_framework.views import APIView
 from rest_framework_mongoengine import viewsets
 from rest_framework.response import Response
 from .models import data
 from .serializers import dataserializer
+from django.contrib.auth.decorators import login_required
+@login_required
+
+def home(request):
+    documents = DataView.objects.all()
+    return render(request, 'home.html', { 'documents': documents })
 
 class DataView(viewsets.ModelViewSet):
 

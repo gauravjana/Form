@@ -19,6 +19,8 @@ urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)'''
 from django.conf.urls import include, url
 from django.urls import path
 from django.contrib import admin
+
+from myapp.apiviews import UserCreate, UserDetail
 from myapp.views import DataView
 from rest_framework_mongoengine import routers
 
@@ -26,13 +28,25 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 router = routers.DefaultRouter()
-router.register(r'form', DataView, r"form")
+router.register(r'form', DataView, r'form')
+
+
+
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
+    url(r'^accounts/', include('accounts.urls', namespace="accounts")),
     ]
+app_name = 'accounts'
+urlpatterns += router.urls
+
+
+
+
+
+
 
 if settings.DEBUG:
         urlpatterns += static(settings.MEDIA_URL,
