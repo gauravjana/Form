@@ -1,9 +1,11 @@
 from django import forms
-from .models import Document
+from mongodbforms import DocumentForm
+
+from .models import Content
 
 
-class ContactForm(forms.ModelForm):
+class ContactForm(DocumentForm):
     class Meta:
-        model = Document
-        fields = "__all__"
+        document = Content
+        fields = ('COMPANY_NAME', 'email', 'address', 'FRONT_INSIDE_PICTURE', 'BUSINESS_CARD_IMAGE')
 

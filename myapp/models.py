@@ -1,14 +1,19 @@
 '''
 from __future__ import unicode_literals
 
+class Document(models.Model):
+    COMPANY_NAME = models.CharField(max_length=255, blank=True)
+    FRONT_INSIDE_PICTURE= models.FileField(upload_to='documents/')
+    BUSINESS_CARD_IMAGE = models.FileField(upload_to='documents/')
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+
 
 from django.db import models
 '''
-from mongoengine import *
-from mongoengine import Document,fields
-from datetime import datetime
-import os
 import json
+from datetime import datetime
+
+from mongoengine import *
 
 connect(
     db='myapp1',
@@ -18,16 +23,9 @@ connect(
 )
 
 
-'''
-class Document(models.Model):
-    COMPANY_NAME = models.CharField(max_length=255, blank=True)
-    FRONT_INSIDE_PICTURE= models.FileField(upload_to='documents/')
-    BUSINESS_CARD_IMAGE = models.FileField(upload_to='documents/')
-    uploaded_at = models.DateTimeField(auto_now_add=True)
-'''
-class data(Document):
 
 
+class Content(Document):
     COMPANY_NAME = StringField(max_length=255, required=True)
     email = StringField(max_length=255, required=True)
     address = StringField(max_length=455, blank=True)
@@ -35,11 +33,13 @@ class data(Document):
     BUSINESS_CARD_IMAGE = FileField()
     uploaded_at = DateTimeField(default=datetime.utcnow)
 
+
+
+
+class Login(Document):
+    username = StringField(max_length=50, required=True)
+    email = StringField(max_length=50, required=True)
+    password = StringField(required=True)
+
     def __str__(self):
-        return self.name
-
-
-
-
-
-
+        return self.username

@@ -12,3 +12,4 @@ six==1.15.0
 sqlparse==0.2.4
 
 mongoengine~=0.20.0
+mongodbforms~=0.3

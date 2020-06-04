@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate, login, logout
 
 def logout_user(request):
     logout(request)
-    return redirect('/form')
+    return redirect('/')
 
 
 def login_form(request):
@@ -20,10 +20,10 @@ def login_user(request):
         # the password verified for the user
         if user.is_active:
             login(request, user)
-            return redirect('/form')
+            return redirect('/data')
     return redirect(settings.LOGIN_URL, request)
 
 
-from django.shortcuts import render
+
 
 # Create your views here.
