@@ -36,10 +36,3 @@ class Content(Document):
 
 
 
-class Login(Document):
-    username = StringField(max_length=50, required=True)
-    email = StringField(max_length=50, required=True)
-    password = StringField(required=True)
-
-    def __str__(self):
-        return self.username

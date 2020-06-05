@@ -28,6 +28,9 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+# SESSION_ENGINE = 'django_mongoengine.sessions'
+# SESSION_SERIALIZER = 'django_mongoengine.sessions.BSONSerializer'
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -37,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework_mongoengine',
+    'rest_framework.authtoken',
     'accounts',
     'myapp'
 
